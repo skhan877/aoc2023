@@ -1,7 +1,8 @@
 input_file = '../inputs/one.txt'
 
 with open(input_file, 'r') as f:
-    lines = f.readlines()
-f.close()
+    lines = []
+    for line in f:
+        lines.append(line.rstrip('\n'))
 
-print(len(lines))
+print(lines[:10])
