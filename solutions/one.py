@@ -39,8 +39,7 @@ def solution_part_two(strng):
         'six' : 6,
         'seven' : 7,
         'eight' : 8,
-        'nine' : 9,
-        'ten' : 10
+        'nine' : 9
     }
 
     for k, v in nums.items():
@@ -49,15 +48,20 @@ def solution_part_two(strng):
     return solution(strng)
 
 
+sample = ['two1nine','eightwothree','abcone2threexyz','xtwone3four','4nineeightseven2','zoneight234','7pqrstsixteen']
 
-
-with open(input_file, 'r') as f:
-    lines = []
-    for line in f:
-        lines.append(line.rstrip('\n'))
+# with open(input_file, 'r') as f:
+#     lines = []
+#     for line in f:
+#         lines.append(line.rstrip('\n'))
 
 result = 0
-for line in lines:
-    result += solution_part_two(line)
+# for line in lines:
+for line in sample:
+    # result += solution_part_two(line)
+    print(solution_part_two(line))
 
-print(result) 
+# print(result) 
+
+# eightwo ... replacing in order for dict, so two before eight. FIX THIS 
+    
