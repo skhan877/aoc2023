@@ -28,6 +28,22 @@ def solution(strng):
     new_num = int(''.join(new_num))
     return new_num 
 
+def solution_part_two(strng):
+
+    nums = {
+        'one' : 1,
+        'two' : 2,
+        'three' : 3,
+        'four' : 4,
+        'five' : 5,
+        'six' : 6,
+        'seven' : 7,
+        'eight' : 8,
+        'nine' : 9,
+        'ten' : 10
+    }
+
+
 with open(input_file, 'r') as f:
     lines = []
     for line in f:
