@@ -43,14 +43,42 @@ def solution_part_two(strng):
         'ten' : 10
     }
 
+    string = strng.replace(nums.keys, nums[key])
 
-with open(input_file, 'r') as f:
-    lines = []
-    for line in f:
-        lines.append(line.rstrip('\n'))
+    pass
 
-result = 0
-for line in lines:
-    result += solution(line)
 
-print(result) 
+
+
+# with open(input_file, 'r') as f:
+#     lines = []
+#     for line in f:
+#         lines.append(line.rstrip('\n'))
+
+# result = 0
+# for line in lines:
+#     result += solution(line)
+
+# print(result) 
+
+nums = {
+        'one' : 1,
+        'two' : 2,
+        'three' : 3,
+        'four' : 4,
+        'five' : 5,
+        'six' : 6,
+        'seven' : 7,
+        'eight' : 8,
+        'nine' : 9,
+        'ten' : 10
+    }
+
+s = '7one23'
+# s = s.replace(nums.keys, nums[keys])
+
+for key, val in nums.items():
+    s = s.replace(key.lower(), str(val))
+
+print(s)
+
