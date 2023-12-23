@@ -27,33 +27,52 @@ def solution(strng):
     new_num = int(''.join(new_num))
     return new_num 
 
-def solution_part_two(strng, nums_dict):
 
-    for k, v in nums_dict.items():
-        strng = strng.replace(k, str(v))
-
-    return solution(strng)
-
-
-def is_num_str(str, nums_dict):
+def is_num_str(strng, nums_dict, reversed=False):
     
-    for char in str.split():
-        print(char)
+    if not reversed:
+        print('running front to back. string is now: '+ strng)
+        for char in list(strng):
+            for k, v in nums_dict.items():
+                if char == k[0]:
+                    # print(char, k)
+                    new_strng = strng.replace(k, str(v))
+                    if new_strng != strng: # replacement successful
+                        print(f'success! old: {strng}, new: {new_strng}. Now reverse it.')
+                        is_num_str(new_strng, nums_dict, reversed=True)
+            break
+        # break
+                    # print(strng)
+                    # print('')
+    
+    else: 
+        print('running back to front. string is now: '+ strng)
+        for char in list(strng)[::-1]:
+            for k, v in nums_dict.items():
+                if char == k[-1]:
+                    # print(char, k)
+                    new_strng = strng.replace(k, str(v))
+                    print('---- doing reverse stuff -----')
+                    print(f'checking {char}, trying {k} because of {k[-1]}, old: {strng}, new: {new_strng}')
+                    print('---------------------')
+                    if new_strng != strng: # replacement successful
+                        break
+            break
+                    # print(strng)
+                    # print('')
 
 
-
-
-
+    return new_strng
 
 
 def main(): 
 
     input_file = '../inputs/one.txt'
 
-    # with open(input_file, 'r') as f:
-    #     lines = []
-    #     for line in f:
-    #         lines.append(line.rstrip('\n'))
+    with open(input_file, 'r') as f:
+        lines = []
+        for line in f:
+            lines.append(line.rstrip('\n'))
     
     nums_dict = {
             'one' : 1,
@@ -67,25 +86,20 @@ def main():
             'nine' : 9
         }
     
+    sample = ['two4oneight', 'two1nine']#,'eightwothree','abcone2threexyz','xtwone3four','4nineeightseven2','zoneight234','7pqrstsixteen']
+
     
-    # result = 0
-    # # for line in lines:
-    # for line in sample:
-    #     # result += solution_part_two(line)
-    #     print(solution_part_two(line))
-
-    # print(result) 
-
-
-    sample = ['two1nine','eightwothree']#,'abcone2threexyz','xtwone3four','4nineeightseven2','zoneight234','7pqrstsixteen']
-
-    for s in sample:
-        print(s)
-        print(is_num_str(s, nums_dict))
-        # for k, v in nums_dict.items():
-        #     s = s.replace(k, str(v))
-        # print(s)
+    result = 0
+    for line in sample: #lines:
+        print(f'original read of line: {line}')
+        converted_line = is_num_str(line, nums_dict)
+        # result += solution(converted_line)
+        print(converted_line)
+        print(f'num to be summed: {solution(converted_line)}')
         print('')
+
+    print(result) 
+
 
 
 if __name__ == '__main__':
