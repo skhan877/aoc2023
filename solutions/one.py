@@ -36,30 +36,25 @@ def solution_part_two(strng, nums_dict):
 
 
 def is_num_str(str, nums_dict):
-    pass
+    
+    for char in str.split():
+        print(char)
 
 
 
 
-# with open(input_file, 'r') as f:
-#     lines = []
-#     for line in f:
-#         lines.append(line.rstrip('\n'))
 
-# result = 0
-# # for line in lines:
-# for line in sample:
-#     # result += solution_part_two(line)
-#     print(solution_part_two(line))
 
-# print(result) 
-
-# eightwo ... replacing in order for dict, so two before eight. FIX THIS 
 
 def main(): 
 
     input_file = '../inputs/one.txt'
 
+    # with open(input_file, 'r') as f:
+    #     lines = []
+    #     for line in f:
+    #         lines.append(line.rstrip('\n'))
+    
     nums_dict = {
             'one' : 1,
             'two' : 2,
@@ -71,14 +66,25 @@ def main():
             'eight' : 8,
             'nine' : 9
         }
+    
+    
+    # result = 0
+    # # for line in lines:
+    # for line in sample:
+    #     # result += solution_part_two(line)
+    #     print(solution_part_two(line))
 
-    sample = ['two1nine','eightwothree','abcone2threexyz','xtwone3four','4nineeightseven2','zoneight234','7pqrstsixteen']
+    # print(result) 
+
+
+    sample = ['two1nine','eightwothree']#,'abcone2threexyz','xtwone3four','4nineeightseven2','zoneight234','7pqrstsixteen']
 
     for s in sample:
         print(s)
-        for k, v in nums_dict.items():
-            s = s.replace(k, str(v))
-        print(s)
+        print(is_num_str(s, nums_dict))
+        # for k, v in nums_dict.items():
+        #     s = s.replace(k, str(v))
+        # print(s)
         print('')
 
 
