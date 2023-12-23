@@ -30,8 +30,9 @@ def solution(strng):
 
 def is_num_str(strng, nums_dict, reversed=False):
     
+    # new_strng = ''
     if not reversed:
-        print('running front to back. string is now: '+ strng)
+        print('running front to back. string is: '+ strng)
         for char in list(strng):
             for k, v in nums_dict.items():
                 if char == k[0]:
@@ -43,24 +44,22 @@ def is_num_str(strng, nums_dict, reversed=False):
             break
     
     else: 
-        print('running back to front. string is now: '+ strng)
+        print('running back to front. string is: '+ strng)
         for char in list(strng)[::-1]:
             for k, v in nums_dict.items():
                 if char == k[-1]:
                     # print(char, k)
-                    new_strng = strng.replace(k, str(v))
-                    print('---- doing reverse stuff -----')
-                    print(f'checking {char}, trying {k} because of {k[-1]}, old: {strng}, new: {new_strng}')
-                    print('---------------------')
-                    if new_strng != strng: # replacement successful
-                        break
+                    new_new_strng = strng.replace(k, str(v))
+                    # print('---- doing reverse stuff -----')
+                    # print(f'checking {char}, trying {k} because of {k[-1]}, old: {strng}, new: {new_strng}')
+                    # print('---------------------')
+                    if new_new_strng != strng: # replacement successful
+                        print(f'success! old: {strng}, new: {new_new_strng}. Call it a day there.')
+                        return new_new_strng
             break
-            return new_strng
-                    # print(strng)
-                    # print('')
 
-    print('at the end of it all: ', strng, new_strng)
-    return new_strng
+    print('at the end of it all: ', strng, new_new_strng)
+    return strng
 
 
 def main(): 
