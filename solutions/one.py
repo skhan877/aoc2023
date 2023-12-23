@@ -41,9 +41,6 @@ def is_num_str(strng, nums_dict, reversed=False):
                         print(f'success! old: {strng}, new: {new_strng}. Now reverse it.')
                         is_num_str(new_strng, nums_dict, reversed=True)
             break
-        # break
-                    # print(strng)
-                    # print('')
     
     else: 
         print('running back to front. string is now: '+ strng)
@@ -58,10 +55,11 @@ def is_num_str(strng, nums_dict, reversed=False):
                     if new_strng != strng: # replacement successful
                         break
             break
+            return new_strng
                     # print(strng)
                     # print('')
 
-
+    print('at the end of it all: ', strng, new_strng)
     return new_strng
 
 
@@ -94,8 +92,8 @@ def main():
         print(f'original read of line: {line}')
         converted_line = is_num_str(line, nums_dict)
         # result += solution(converted_line)
-        print(converted_line)
-        print(f'num to be summed: {solution(converted_line)}')
+        # print(converted_line)
+        # print(f'num to be summed: {solution(converted_line)}')
         print('')
 
     print(result) 
