@@ -28,38 +28,46 @@ def solution(strng):
     return new_num 
 
 
-def is_num_str(strng, nums_dict, reversed=False):
+def is_num_str(strng, nums_dict):
     
-    # new_strng = ''
-    if not reversed:
-        print('running front to back. string is: '+ strng)
+    finished = False
+    reversed = False
+    new_strngs = []
+
+    while not reversed:
+        # print('running front to back. string is: '+ strng)
         for char in list(strng):
+            # print('in char loop ' + char)
             for k, v in nums_dict.items():
+                # print('in k,v loop ', k, v)
                 if char == k[0]:
                     # print(char, k)
                     new_strng = strng.replace(k, str(v))
                     if new_strng != strng: # replacement successful
-                        print(f'success! old: {strng}, new: {new_strng}. Now reverse it.')
-                        is_num_str(new_strng, nums_dict, reversed=True)
-            break
-    
-    else: 
-        print('running back to front. string is: '+ strng)
-        for char in list(strng)[::-1]:
+                        # print(f'success! old: {strng}, new: {new_strng}. Now reverse it.')
+                        #is_num_str(new_strng, nums_dict, reversed=True)
+                        new_strngs.append(new_strng)
+                        reversed = True 
+                        break
+            if reversed:
+                break 
+
+    while not finished:
+        # print('running back to front. string is: '+ new_strng)
+        for char in list(new_strng)[::-1]:
             for k, v in nums_dict.items():
                 if char == k[-1]:
                     # print(char, k)
-                    new_new_strng = strng.replace(k, str(v))
-                    # print('---- doing reverse stuff -----')
-                    # print(f'checking {char}, trying {k} because of {k[-1]}, old: {strng}, new: {new_strng}')
-                    # print('---------------------')
-                    if new_new_strng != strng: # replacement successful
-                        print(f'success! old: {strng}, new: {new_new_strng}. Call it a day there.')
-                        return new_new_strng
-            break
+                    new_new_strng = new_strng.replace(k, str(v))
+                    if new_new_strng != new_strng: # replacement successful
+                        # print(f'success! old: {new_strng}, new: {new_new_strng}. Call it a day there.')
+                        new_strngs.append(new_new_strng)
+                        finished = True
+                        break
+            if finished:
+                break
 
-    print('at the end of it all: ', strng, new_new_strng)
-    return strng
+    return new_strngs[-1]
 
 
 def main(): 
@@ -83,7 +91,7 @@ def main():
             'nine' : 9
         }
     
-    sample = ['two4oneight', 'two1nine']#,'eightwothree','abcone2threexyz','xtwone3four','4nineeightseven2','zoneight234','7pqrstsixteen']
+    sample = ['two4oneight', 'two1nine','eightwothree','abcone2threexyz','xtwone3four','4nineeightseven2','zoneight234','7pqrstsixteen']
 
     
     result = 0
@@ -91,11 +99,11 @@ def main():
         print(f'original read of line: {line}')
         converted_line = is_num_str(line, nums_dict)
         # result += solution(converted_line)
-        # print(converted_line)
+        print(converted_line)
         # print(f'num to be summed: {solution(converted_line)}')
         print('')
 
-    print(result) 
+    # print(result) 
 
 
 
