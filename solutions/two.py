@@ -1,13 +1,15 @@
 def part_one(input_game): 
     
+    allowed = {'red': 12, 'green': 13, 'blue': 14}
+
     game_id = input_game[5]
-    draws = []
+    games = []
 
-    for draw in input_game[8:].split('; '):
-        draws.append(draw)
-
-    return draws 
-
+    for game in input_game[8:].split('; ').strip():
+        #draws.append(draw)
+        print(game)
+    
+    # return len(games)
 
 
 
