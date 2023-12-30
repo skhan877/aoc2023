@@ -2,12 +2,22 @@ def part_one(input_game):
     
     allowed = {'red': 12, 'green': 13, 'blue': 14}
 
-    # game_id = input_game[5]
     valid_games = []
 
     for line in input_game:
+        game_id = line[5]
+        result = True
         for game in line[8:].split('; '):
-            print(game)
+            print(game_id)
+            colours = [(col.split(' ')) for col in game.split(', ')]
+            for colour in colours:
+                check = {colour[1] : colour[0]}
+                print(check, int(colour[0]) <= allowed[colour[1]])
+                if int(colour[0]) > allowed[colour[1]]:
+                    result = False 
+                    print('move on to next game')
+            # break 
+            print('')
         print('')
 
         # for game in line: #input_game[8:].split('; '):
