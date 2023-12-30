@@ -6,8 +6,9 @@ def part_one(input_game):
     valid_games = []
 
     for line in input_game:
-        for game in line[8:].split(' ;'):
+        for game in line[8:].split('; '):
             print(game)
+        print('')
 
         # for game in line: #input_game[8:].split('; '):
         #     for s in game.split(', '):
