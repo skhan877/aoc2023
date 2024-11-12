@@ -36,6 +36,20 @@ def part_one(input_game):
     return sum(valid_games)
 
 
+def part_two(input_game): 
+    """
+    For each game, find the minimum set of cubes that must have been present. 
+    What is the sum of the power of these sets?
+    """
+
+    max_cols = {'red': 1, 'green': 1, 'blue': 1}
+
+    for line in input_game:
+        pass 
+
+    return -1 
+
+
 
 def main(): 
     
