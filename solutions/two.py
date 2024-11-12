@@ -23,7 +23,6 @@ def part_one(input_game):
             colours = [(col.split(' ')) for col in toss.split(', ') if len(col)]
             for colour in colours:
                 check = {colour[1] : colour[0]}
-                # print(check, int(colour[0]) <= allowed[colour[1]])
                 if int(colour[0]) > allowed[colour[1]]:
                     result = False 
                     try:
@@ -44,8 +43,13 @@ def part_two(input_game):
 
     max_cols = {'red': 1, 'green': 1, 'blue': 1}
 
-    for line in input_game:
-        pass 
+    # for line in input_game:
+    #     print(line.split(": ")[1])
+
+    print([line.split(": ")[1].split("; ") for line in input_game])
+
+
+    # print(tosses)
 
     return -1 
 
@@ -59,17 +63,16 @@ def main():
         lines = [] 
         for line in f: 
             lines.append(line.rstrip('\n')) 
+        lines = lines[:-1]
     
-    # print(lines[98:103])
-    print(part_one(lines[:-1]))
     
-    # print(lines[-4:-1])
-
-    # sample = ['Game 101: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green']#,'Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue','Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red', 'Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red', 'Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green']
-
+    sample = ['Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green','Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue','Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red', 'Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red', 'Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green']
     # print(part_one(sample))
-    # print(sample[0].split(":")[0].replace("Game ", ""))
-    # print(sample[0].split(": ")[1])
+    print(part_two(sample))
+
+    # print(part_one(lines))
+    # print(part_two(lines))
+
 
 if __name__ == "__main__": 
     main()
