@@ -41,12 +41,32 @@ def part_two(input_game):
     What is the sum of the power of these sets?
     """
 
-    max_cols = {'red': 1, 'green': 1, 'blue': 1}
+    # max_cols = {'red': 1, 'green': 1, 'blue': 1}
 
-    # for line in input_game:
-    #     print(line.split(": ")[1])
+    tosses = [line.split(": ")[1].split("; ") for line in input_game]
 
-    print([line.split(": ")[1].split("; ") for line in input_game])
+    for toss in tosses:
+    
+        max_cols = {'red': 1, 'green': 1, 'blue': 1}
+        cur_prod = 1
+    
+        for t in toss:
+            print(t)
+            colours = [col.split(' ') for col in toss if len(col)]
+            for colour in colours:
+                ball_colour = colour[1].replace(",", "")
+                ball_count = int(colour[0])
+                print(ball_colour, ball_count)
+                if ball_count > max_cols[ball_colour]:
+                    cur_prod *= ball_count
+                    print(f"yep, {ball_count} is greater than {max_cols[ball_colour]}")
+        
+                # print(max_cols)
+        print(cur_prod)
+
+
+            
+        print(" ")
 
 
     # print(tosses)
