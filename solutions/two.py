@@ -43,31 +43,34 @@ def part_two(input_game):
 
     # max_cols = {'red': 1, 'green': 1, 'blue': 1}
 
-    tosses = [line.split(": ")[1].split("; ") for line in input_game]
+    all_games = [line.split(": ")[1].split("; ") for line in input_game]
 
-    for toss in tosses:
-        print(toss)
+    for game in all_games:
+        print(f"game: {game}")
+
         max_cols = {'red': 1, 'green': 1, 'blue': 1}
         cur_prod = 1
     
-        for t in toss:
-            print(t.split(", "))
-            colours = [col.split(', ') for col in t if len(col)]
-            print(colours)
-            for colour in colours:
-                # print(colour)
-                ball_colour = colour[1].replace(",", "")
-                ball_count = int(colour[0])
-                # print(ball_colour, ball_count)
-                if ball_count > max_cols[ball_colour]:
-                    cur_prod *= ball_count
-                    # print(f"yep, {ball_count} is greater than {max_cols[ball_colour]}")
+        for selection in game:
+            print(f"selection: {selection}")
+            print(f"selection split: {selection.split(', ')}")
+            # colours = {col.split(" ")[1]: col.split(" ")[0] for col in t}
+            # print(colours)
+            # for colour in colours:
+            #     # print(colour)
+            #     ball_colour = colour[1].replace(",", "")
+            #     ball_count = int(colour[0])
+            #     # print(ball_colour, ball_count)
+            #     if ball_count > max_cols[ball_colour]:
+            #         cur_prod *= ball_count
+            #         # print(f"yep, {ball_count} is greater than {max_cols[ball_colour]}")
         
                 # print(max_cols)
         # print(cur_prod)
-            print(" ")
+            # print(" ")
 
-
+        print("-----------------------")
+    # print("")
         # print(tosses)
 
     return -1 
