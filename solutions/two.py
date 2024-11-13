@@ -46,30 +46,29 @@ def part_two(input_game):
     tosses = [line.split(": ")[1].split("; ") for line in input_game]
 
     for toss in tosses:
-    
+        print(toss)
         max_cols = {'red': 1, 'green': 1, 'blue': 1}
         cur_prod = 1
     
         for t in toss:
-            print(t)
-            colours = [col.split(' ') for col in toss if len(col)]
+            print(t.split(", "))
+            colours = [col.split(', ') for col in t if len(col)]
+            print(colours)
             for colour in colours:
+                # print(colour)
                 ball_colour = colour[1].replace(",", "")
                 ball_count = int(colour[0])
-                print(ball_colour, ball_count)
+                # print(ball_colour, ball_count)
                 if ball_count > max_cols[ball_colour]:
                     cur_prod *= ball_count
-                    print(f"yep, {ball_count} is greater than {max_cols[ball_colour]}")
+                    # print(f"yep, {ball_count} is greater than {max_cols[ball_colour]}")
         
                 # print(max_cols)
-        print(cur_prod)
+        # print(cur_prod)
+            print(" ")
 
 
-            
-        print(" ")
-
-
-    # print(tosses)
+        # print(tosses)
 
     return -1 
 
