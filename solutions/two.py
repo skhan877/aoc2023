@@ -44,42 +44,35 @@ def part_two(input_game):
     # max_cols = {'red': 1, 'green': 1, 'blue': 1}
 
     all_games = [line.split(": ")[1].split("; ") for line in input_game]
+    final_answer = 0
 
     for game in all_games:
-        print(f"game: {game}")
+        # print(f"game: {game}")
 
         max_cols = {'red': 1, 'green': 1, 'blue': 1}
-        cur_prod = 1
+        power = 1
     
         for selection in game:
-            print(f"selection: {selection}")
+            # print(f"selection: {selection}")
             selection_split = selection.split(', ')
-            print(f"selection split: {selection.split(', ')}")
+            # print(f"selection split: {selection.split(', ')}")
             selection_dict = {}
             for y in selection_split:
                 x = y.split(" ")
                 selection_dict[x[1]] = int(x[0]) 
-            print(F"selection_dict: {selection_dict}")
-            # colours = {col.split(" ")[1]: col.split(" ")[0] for col in t}
-            # print(colours)
-            # for colour in colours:
-            #     # print(colour)
-            #     ball_colour = colour[1].replace(",", "")
-            #     ball_count = int(colour[0])
-            #     # print(ball_colour, ball_count)
-            #     if ball_count > max_cols[ball_colour]:
-            #         cur_prod *= ball_count
-            #         # print(f"yep, {ball_count} is greater than {max_cols[ball_colour]}")
-        
-                # print(max_cols)
-        # print(cur_prod)
-            # print(" ")
+            # print(F"selection_dict: {selection_dict}")
+            
+            for k, v in selection_dict.items():
+                max_cols[k] = max(v, max_cols[k])
 
-        print("-----------------------")
-    # print("")
-        # print(tosses)
+            # print(f"max cols: {max_cols}")
 
-    return -1 
+        for v in max_cols.values():
+            power *= v 
+
+        final_answer += power 
+
+    return final_answer
 
 
 
@@ -94,12 +87,12 @@ def main():
         lines = lines[:-1]
     
     
-    sample = ['Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green','Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue','Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red', 'Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red', 'Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green']
+    # sample = ['Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green','Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue','Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red', 'Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red', 'Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green']
     # print(part_one(sample))
-    print(part_two(sample))
+    # print(part_two(sample))
 
     # print(part_one(lines))
-    # print(part_two(lines))
+    print(part_two(lines))
 
 
 if __name__ == "__main__": 
