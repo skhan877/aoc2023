@@ -55,7 +55,10 @@ def part_two(input_game):
             print(f"selection: {selection}")
             selection_split = selection.split(', ')
             print(f"selection split: {selection.split(', ')}")
-            selection_dict = {x[1]: x[0] for x.split(' ') in selection_split}
+            selection_dict = {}
+            for y in selection_split:
+                x = y.split(" ")
+                selection_dict[x[1]] = int(x[0]) 
             print(F"selection_dict: {selection_dict}")
             # colours = {col.split(" ")[1]: col.split(" ")[0] for col in t}
             # print(colours)
