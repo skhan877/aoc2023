@@ -6,7 +6,27 @@ def parse_input(input_data):
     return arr  
 
 def part_one(inputs):
-    pass 
+    
+    """
+    look for numbers: not periods, is numeric, while loop? 
+    look for symbols: not alpha, not numeric, not period
+    """
+
+    nums = [] 
+    is_num = True
+    i = j = 0
+
+    for x in inputs:
+        # while x[j].isnumeric():
+        #     j += 1
+        # nums.append(x[i:j])
+        # i = j 
+        # j += 1
+        x = x.replace(".", "-")
+        # x = x.split(" ")
+        print(x)
+
+
 
 
 def part_two(inputs):
@@ -19,18 +39,18 @@ def main():
     input_array = parse_input(input_data)
     # return input_array
 
-    sample_data = ["467..114.. " +
-        "...*......" + 
-        "..35..633." +
-        "......#..." +
-        "17*......" +
-        ".....+.58." +
-        "..592....." +
-        "......755." +
-        "...$.*...." +
+    sample_data = ["467..114.." ,
+        "...*......" ,
+        "..35..633." ,
+        "......#..." ,
+        "617*......" ,
+        ".....+.58.",
+        "..592....." ,
+        "......755." ,
+        "...$.*...." ,
         ".664.598.."]
 
-    print(sample_data)
+    print(part_one(sample_data))
 
 if __name__ == "__main__":
     main()
