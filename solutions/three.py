@@ -5,11 +5,11 @@ def parse_input(input_data):
             arr.append(row.rstrip('\n'))
     return arr  
 
-def part_one(input_game):
+def part_one(inputs):
     pass 
 
 
-def part_two(input_game):
+def part_two(inputs):
     pass 
 
 
@@ -17,8 +17,20 @@ def main():
     
     input_data = "..//inputs//three.txt"
     input_array = parse_input(input_data)
-    return input_array, len(input_array)
+    # return input_array
 
+    sample_data = ["467..114.. " +
+        "...*......" + 
+        "..35..633." +
+        "......#..." +
+        "17*......" +
+        ".....+.58." +
+        "..592....." +
+        "......755." +
+        "...$.*...." +
+        ".664.598.."]
+
+    print(sample_data)
 
 if __name__ == "__main__":
-    print(main())
+    main()
