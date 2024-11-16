@@ -39,7 +39,8 @@ def main():
     input_array = parse_input(input_data)
     # return input_array
 
-    sample_data = ["467..114.." ,
+    sample_data = [
+        "467..114.." ,
         "...*......" ,
         "..35..633." ,
         "......#..." ,
